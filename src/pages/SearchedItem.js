@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Grid = styled.div`
@@ -25,32 +25,34 @@ const Card = styled.div`
 
 function SearchedItem() {
 
-    const [searchedRecipies, setSearchedrecipies] = useState([]);
+  const [searchedRecipies, setSearchedrecipies] = useState([]);
 
-    let params = useParams();
+  let params = useParams();
 
-    useEffect(() => {
-        getSearchedRecipie(params.search);
-    }, [params.search]);
+  useEffect(() => {
+    getSearchedRecipie(params.search);
+  }, [params.search]);
 
-    const getSearchedRecipie = async (name) => {
-        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=12`;
-        const apiData = await fetch(url);
-        const recipies = await apiData.json();
-        setSearchedrecipies(recipies.results);
-    };
-    return (
-        <Grid>
-            {searchedRecipies.map((recipie) => {
-                return (
-                    <Card key={recipie.id}>
-                        <img src={recipie.image} alt={recipie.title} />
-                        <h4>{recipie.title}</h4>
-                    </Card>
-                )
-            })}
-        </Grid>
-    )
+  const getSearchedRecipie = async (name) => {
+    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&query=${name}&number=12`;
+    const apiData = await fetch(url);
+    const recipies = await apiData.json();
+    setSearchedrecipies(recipies.results);
+  };
+  return (
+    <Grid>
+      {searchedRecipies.map((recipie) => {
+        return (
+          <Card key={recipie.id}>
+            <Link to={"/recipe/" + recipie.id}>
+              <img src={recipie.image} alt={recipie.title} />
+              <h4>{recipie.title}</h4>
+            </Link>
+          </Card>
+        )
+      })}
+    </Grid>
+  )
 }
 
 export default SearchedItem

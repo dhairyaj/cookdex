@@ -36,16 +36,18 @@ function Cuisine() {
   };
 
   useEffect(() => {
-    getCuisineRecipies(params.type); 
-  },[params.type]);
+    getCuisineRecipies(params.type);
+  }, [params.type]);
 
   return (
     <Grid>
       {cuisine.map((recipie) => {
-        return(
+        return (
           <Card key={recipie.id}>
-            <img src={recipie.image} alt={recipie.title} />
-            <h4>{recipie.title}</h4>
+            <Link to={"/recipe/" + recipie.id}>
+              <img src={recipie.image} alt={recipie.title} />
+              <h4>{recipie.title}</h4>
+            </Link>
           </Card>
         )
       })}
