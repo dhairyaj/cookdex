@@ -61,7 +61,8 @@ function Vegetarian() {
     if(check) {
       setVegetarian(JSON.parse(check));
     } else {
-      const apiData = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`);
+      const url = `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`
+      const apiData = await fetch(url);
       const data = await apiData.json();
       localStorage.setItem("vegetarian", JSON.stringify(data.recipes));
       setVegetarian(data.recipes);
@@ -73,7 +74,7 @@ function Vegetarian() {
       <Wrapper>
         <h3>Our Vegetarian Picks</h3>
         <Splide options={{
-                perPage: 4,
+                perPage: 3,
                 arrows: false,
                 pagination: false,
                 drag: "free",

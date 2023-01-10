@@ -1,9 +1,14 @@
-import Navbar from "./pages/Navbar";
+import CuisineCategories from "./components/CuisineCategories";
+import Pages from "./pages/Pages";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <BrowserRouter>
+        <CuisineCategories />
+        <Pages />
+      </BrowserRouter>
     </div>
   );
 }
