@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const FormStyle = styled.form`
 
-    margin: 3rem 10rem 0;
+    margin: 0rem 10rem;
 
     div{
         position: relative;
