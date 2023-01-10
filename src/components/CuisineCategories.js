@@ -35,6 +35,7 @@ const StyledNavLink = styled(NavLink)`
         color: white;
         font-size: 1.5rem;
     }
+    
     &.active {
         background: linear-gradient(to right, #f27121, #e94057);
 
@@ -49,26 +50,26 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function CuisineCategories() {
-  return (
-    <List>
-        <StyledNavLink to={"/cuisine/Italian"}>
-            <FaPizzaSlice />
-            <h4>Italian</h4>
-        </StyledNavLink>
-        <StyledNavLink to={"/cuisine/American"}>
-            <FaHamburger />
-            <h4>American</h4>
-        </StyledNavLink>
-        <StyledNavLink to={"/cuisine/Thai"}>
-            <GiNoodles />
-            <h4>Thai</h4>
-        </StyledNavLink>
-        <StyledNavLink to={"/cuisine/Japanese"}>
-            <GiChopsticks />
-            <h4>Japanese</h4>
-        </StyledNavLink>
-    </List>
-  )
+    return (
+        <List>
+            <StyledNavLink to={"/cuisine/Italian"}>
+                <FaPizzaSlice />
+                <h4>Italian</h4>
+            </StyledNavLink>
+            <StyledNavLink to={"/cuisine/American"}>
+                <FaHamburger />
+                <h4>American</h4>
+            </StyledNavLink>
+            <StyledNavLink to={"/cuisine/Thai"}>
+                <GiNoodles />
+                <h4>Thai</h4>
+            </StyledNavLink>
+            <StyledNavLink to={"/cuisine/Japanese"}>
+                <GiChopsticks />
+                <h4>Japanese</h4>
+            </StyledNavLink>
+        </List>
+    )
 }
 
 export default CuisineCategories
