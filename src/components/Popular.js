@@ -1,51 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { Link } from 'react-router-dom';
-
-const Wrapper = styled.div`
-  margin: 4rem 0;
-`;
-
-const Card = styled.div`
-  min-height: 20rem;
-  border-radius: 2rem;
-  overflow: hidden;
-  position: relative;
-
-  img{
-    border-radius: 2rem;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  p{
-    position: absolute;
-    z-index: 5;
-    left: 50%;
-    bottom: 5%;
-    transform: translate(-50%, -5%);
-    color: white;
-    width: 90%;
-    text-align: center;
-    font-weight: 800;
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-const Gradient = styled.div`
-  position: absolute;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
-`;
+import { Wrapper, Card, Gradient } from './StyledItems';
 
 function Popular() {
 

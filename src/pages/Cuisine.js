@@ -1,27 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Link, useParams } from 'react-router-dom';
-
-const Grid = styled(motion.div)`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 3rem;
-`;
-
-const Card = styled.div`
-  img{
-    width: 100%;
-    border-radius: 2rem;
-  }
-  a{
-    text-decoration: none;
-  }
-  h4{
-    text-align: center;
-    padding: 1rem;
-  }
-`;
+import { Grid, CuisineCard } from '../components/StyledItems';
 
 function Cuisine() {
 
@@ -48,12 +27,12 @@ function Cuisine() {
     >
       {cuisine.map((recipie) => {
         return (
-          <Card key={recipie.id}>
+          <CuisineCard key={recipie.id}>
             <Link to={"/recipe/" + recipie.id}>
               <img src={recipie.image} alt={recipie.title} />
               <h4>{recipie.title}</h4>
             </Link>
-          </Card>
+          </CuisineCard>
         )
       })}
     </Grid>

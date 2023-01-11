@@ -1,27 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 3rem;
-`;
-
-const Card = styled.div`
-  img{
-    width: 100%;
-    object-fit: cover;
-    border-radius: 2rem;
-  }
-  a{
-    text-decoration: none;
-  }
-  h4{
-    text-align: center;
-    padding: 1rem;
-  }
-`;
+import { Grid, RecipeCard } from '../components/StyledItems';
 
 function SearchedItem() {
 
@@ -43,12 +22,12 @@ function SearchedItem() {
     <Grid>
       {searchedRecipies.map((recipie) => {
         return (
-          <Card key={recipie.id}>
+          <RecipeCard key={recipie.id}>
             <Link to={"/recipe/" + recipie.id}>
               <img src={recipie.image} alt={recipie.title} />
               <h4>{recipie.title}</h4>
             </Link>
-          </Card>
+          </RecipeCard>
         )
       })}
     </Grid>
